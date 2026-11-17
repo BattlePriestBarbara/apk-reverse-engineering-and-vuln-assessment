@@ -1,0 +1,25 @@
+=== 零流量自检（NetGuard）===
+  [ok] socket.socket() -> RuntimeError（NetGuard 拦截：socket.socket 已禁用）
+  [ok] import urllib.request -> ImportError（NetGuard 禁止导入 urllib）
+
+=== 攻击矩阵（8 场景 × 3 剖面）===
+场景   攻击                     baseline               hardened               rotated               
+A1   泄露旧钥伪造签名               200                    200                    401                     PASS
+A2   签名重放                   200                    200×1 + 401×1          401                     PASS
+A3   过期时间戳                  200                    401                    401                     PASS
+A4   版本降级绕过                 200                    401                    401                     PASS
+A5   未签名参数注入                200                    400                    401                     PASS
+A6   单来源洪泛                  200                    200×360 + 429×540      401                     PASS
+A7   新钥 + 陌生来源（对照）          401                    200                    200                     PASS
+A8   缺失设备指纹                 200                    200                    401                     PASS
+
+=== 全部断言通过 ===
+
+结论：
+  1. baseline（现状）对 A1～A6 全部放行，泄露钥即可伪造/重放/降级/注入。
+  2. hardened（双钥+检测）能拦住 A2～A6，但 A1 仍 200——只打标不阻断，
+     因为旧钥还在 keyring 里，这正是 P0-1『信任根悖论』的实证。
+  3. rotated（旧钥吊销）才让 A1/A2/A4/A6 全部 401；检测项用于轮换窗口期。
+  4. A7 证明新钥+陌生来源不误报，A8 证明缺设备指纹仍被 headless 打标。
+
+结果已写入 sandbox/attack_result.json
