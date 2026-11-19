@@ -1,0 +1,10 @@
+鍊欓€?                       鍚戦噺                                            鍒嗘暟  绛夌骇       ISS/Impact/Expl
+V1 缃戝叧瀵嗛挜-閫夊畾(S:C)           AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:N         10.0  Critical 0.8064/5.7576/3.887
+V1 缃戝叧瀵嗛挜-澶囬€?S:U)           AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N          9.1  Critical 0.8064/5.1771/3.887
+V1 缃戝叧瀵嗛挜-淇濆畧(浠匢:H)          AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:H/A:N          9.3  Critical 0.6568/4.7173/3.887
+V2 OAuth瀵嗛挜-閫夊畾(S:C)        AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:H/A:N          9.3  Critical 0.6568/4.7173/3.887
+V2 OAuth瀵嗛挜-澶囬€?S:U)        AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:H/A:N          8.2  High     0.6568/4.2167/3.887
+V2 OAuth瀵嗛挜-楂?鍚獵:H)        AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:N         10.0  Critical 0.8064/5.7576/3.887
+V3 SSO鏄庢枃-閫夊畾(S:U,AV:A)     AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N          7.1  High     0.6568/4.2167/2.8353
+V3 SSO鏄庢枃-澶囬€?S:C)          AV:A/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N          8.2  High     0.6568/4.7173/2.8353
+V3 SSO鏄庢枃-缃戠粶鍙揪(S:U)        AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:N          6.5  Medium   0.6568/4.2167/2.2212

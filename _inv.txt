@@ -1,0 +1,44 @@
+﻿== ROOT MD ==
+EXPERIMENTS_NEEDED.md`t23459
+remediation_plan.md`t28208
+threat_model.md`t17825
+unverified_hypotheses.md`t2689
+VULN_SCREEN_REPORT.md`t5977
+_sec5.md`t5238
+_tm_view.md`t17534
+综合安全评估报告_静态动态与模拟攻击.md`t44443
+逆向与安全评估报告.md`t100899
+== evidence ==
+evidence\collect_golden.py`t19251
+evidence\compare_keys.py`t7704
+evidence\EXP-8_sandbox_attack.txt`t1860
+evidence\FINDINGS_sign_algo.md`t6218
+evidence\frida_dump_sign.js`t19933
+evidence\SHA256SUMS.txt`t343
+== sandbox ==
+sandbox\attack_result.json`t11970
+sandbox\attack_sim.py`t17483
+sandbox\docker-compose.yml`t819
+sandbox\Dockerfile`t974
+sandbox\mock_gateway.py`t9728
+sandbox\README.md`t3844
+sandbox\RESULTS.md`t6037
+sandbox\run_in_docker.sh`t1664
+sandbox\run_offline.ps1`t648
+sandbox\__pycache__\attack_sim.cpython-314.pyc`t26523
+sandbox\__pycache__\mock_gateway.cpython-314.pyc`t16952
+== tests ==
+tests\test_poc_oracle.py`t8664
+tests\test_sandbox_attacks.py`t5189
+tests\test_sanitize.py`t13994
+tests\__pycache__\test_poc_oracle.cpython-314.pyc`t14198
+tests\__pycache__\test_sandbox_attacks.cpython-314.pyc`t11426
+tests\__pycache__\test_sanitize.cpython-314.pyc`t24054
+== DIRS ==
+ddd
+evidence
+sandbox
+tests
+_backup_before
+_re_workspace
+

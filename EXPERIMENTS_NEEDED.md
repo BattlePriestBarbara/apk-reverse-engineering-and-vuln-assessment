@@ -55,9 +55,9 @@
   1. 现场计算样本指纹（产出 SAMPLE，禁止手填）：
      `python -c "import hashlib,pathlib;print(hashlib.sha256(pathlib.Path(r'YOUR_APK_PATH').read_bytes()).hexdigest()[:16])"`
   2. 先做离线 dry-run，确认参数与签名链路（不发包）：
-     `python _re_ws\poc_gateway_sign.py --url https://YOUR_TEST_GATEWAY_HOST/YOUR_GATEWAY_PATH --app-key YOUR_APP_KEY_HERE --secret YOUR_SECRET_HERE --algorithm hmac-sha256-sorted`
+     `python _re_workspace\poc_gateway_sign.py --url https://YOUR_TEST_GATEWAY_HOST/YOUR_GATEWAY_PATH --app-key YOUR_APP_KEY_HERE --secret YOUR_SECRET_HERE --algorithm hmac-sha256-sorted`
   3. 授权投递，且**不携带任何用户凭证**（密钥走 stdin，避免落命令行历史）：
-     `python _re_ws\poc_gateway_sign.py --url https://YOUR_TEST_GATEWAY_HOST/YOUR_GATEWAY_PATH --app-key YOUR_APP_KEY_HERE --secret-stdin --algorithm hmac-sha256-sorted --confirm-authorized 2>&1 | Tee-Object -FilePath evidence\EXP-1_forged_request.log`
+     `python _re_workspace\poc_gateway_sign.py --url https://YOUR_TEST_GATEWAY_HOST/YOUR_GATEWAY_PATH --app-key YOUR_APP_KEY_HERE --secret-stdin --algorithm hmac-sha256-sorted --confirm-authorized 2>&1 | Tee-Object -FilePath evidence\EXP-1_forged_request.log`
   4. 复核请求成分中"无用户身份"：
      `Select-String -Path evidence\EXP-1_forged_request.log -Pattern 'cookie|authorization|token'`
   5. 响应体另存（先脱敏再入库）：
@@ -87,15 +87,15 @@
 - 前置条件：
   - EXP-1 已 PASS（否则本实验无需执行，T-1 直接按 9.1 处理）
   - 测试环境数据库只读账号 + 单条测试数据的回滚手段
-  - 接口清单来源：`TODO(NEED-EVIDENCE: 从 _re_ws\逆向与安全评估报告_脱敏.md 的接口清单表导出只读接口 3 条、写接口 1 条，分别填入 YOUR_READONLY_ENDPOINT_1、YOUR_READONLY_ENDPOINT_2、YOUR_READONLY_ENDPOINT_3、YOUR_WRITE_ENDPOINT_1)`
+  - 接口清单来源：`TODO(NEED-EVIDENCE: 从 _re_workspace\逆向与安全评估报告_脱敏.md 的接口清单表导出只读接口 3 条、写接口 1 条，分别填入 YOUR_READONLY_ENDPOINT_1、YOUR_READONLY_ENDPOINT_2、YOUR_READONLY_ENDPOINT_3、YOUR_WRITE_ENDPOINT_1)`
 - 步骤：
   1. 只读接口 ×3，各投递一次：
-     `python _re_ws\poc_gateway_sign.py --url https://YOUR_TEST_GATEWAY_HOST/YOUR_READONLY_ENDPOINT_1 --app-key YOUR_APP_KEY_HERE --secret-stdin --algorithm hmac-sha256-sorted --confirm-authorized 2>&1 | Tee-Object -FilePath evidence\EXP-2_readonly_1.log`
+     `python _re_workspace\poc_gateway_sign.py --url https://YOUR_TEST_GATEWAY_HOST/YOUR_READONLY_ENDPOINT_1 --app-key YOUR_APP_KEY_HERE --secret-stdin --algorithm hmac-sha256-sorted --confirm-authorized 2>&1 | Tee-Object -FilePath evidence\EXP-2_readonly_1.log`
      （对 `_2`、`_3` 重复，文件名同步替换）
   2. 字段敏感度分级（人工，输出 CSV）：
      `TODO(NEED-EVIDENCE: 逐字段标注是否属个人信息，写入 evidence\EXP-2_field_classification.csv，列头固定为 endpoint,field,pii)`
   3. 写操作最小验证（仅测试环境、单次、可回滚）：参数全部用哨兵值，
-     `python _re_ws\poc_gateway_sign.py --url https://YOUR_TEST_GATEWAY_HOST/YOUR_WRITE_ENDPOINT_1 --app-key YOUR_APP_KEY_HERE --secret-stdin --algorithm hmac-sha256-sorted --confirm-authorized 2>&1 | Tee-Object -FilePath evidence\EXP-2_write_check.log`
+     `python _re_workspace\poc_gateway_sign.py --url https://YOUR_TEST_GATEWAY_HOST/YOUR_WRITE_ENDPOINT_1 --app-key YOUR_APP_KEY_HERE --secret-stdin --algorithm hmac-sha256-sorted --confirm-authorized 2>&1 | Tee-Object -FilePath evidence\EXP-2_write_check.log`
   4. 数据库侧确认写入是否落库（只读查询，禁止修改）：
      `TODO(NEED-EVIDENCE: 用只读账号查询步骤 3 的测试数据，记录影响行数到 evidence\EXP-2_write_check.log 尾部)`
   5. 统计 PII 占比：
@@ -107,7 +107,7 @@
   - **FAIL（回退 9.3）**：只读接口仅返回公开字典/配置类数据，或写接口被
     业务层二次校验拒绝；此时按 §4 `S:C/C:L/I:H` = 9.3 取值。
   - 若只读 PASS、写 FAIL → 回退向量取 `S:C/C:H/I:L`，分数
-    `TODO(NEED-EVIDENCE: python _re_ws\cvss_check.py "AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N")`
+    `TODO(NEED-EVIDENCE: python _re_workspace\cvss_check.py "AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N")`
 - 产物路径：`evidence/EXP-2_readonly_1.log`、`evidence/EXP-2_readonly_2.log`、
   `evidence/EXP-2_readonly_3.log`、`evidence/EXP-2_write_check.log`、
   `evidence/EXP-2_field_classification.csv`
@@ -123,7 +123,7 @@
 - 若成立 → 向量保持 `AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:H/A:N`，Base = 8.2
 - 若不成立 → 回退向量与分数 `TODO(NEED-EVIDENCE: 先由步骤 2/5 确定平台侧
   拦截点（IP 白名单 / 权限已收回 / 密钥已轮换），据此选定回退向量，再跑
-  python _re_ws\cvss_check.py "<回退向量>")`
+  python _re_workspace\cvss_check.py "<回退向量>")`
 - 前置条件：
   - 甲方书面授权 + **仅限甲方自有 App**；若生产密钥尚未轮换，
     先按 P0-3 完成轮换，实验使用轮换后的测试凭据，避免污染取证
@@ -231,7 +231,7 @@
     并须说明所需时序条件（用以支撑 AC:H），分数取 §4 的 6.5。
   - **补充判定（C:H）**：step5 能用令牌读到该测试账号数据 → C:H 成立；若令牌
     被服务端绑定会话指纹而失效 → C 需下调，
-    `TODO(NEED-EVIDENCE: python _re_ws\cvss_check.py "<调整后向量>")`
+    `TODO(NEED-EVIDENCE: python _re_workspace\cvss_check.py "<调整后向量>")`
 - 产物路径：`evidence/EXP-5_mitm.pcapng`、`evidence/EXP-5_http_requests.txt`、
   `evidence/EXP-5_offlink_control.txt`、`evidence/EXP-5_token_replay.txt`
 - 预计耗时：120 min
@@ -282,7 +282,7 @@
     step5 返回非本租户数据。此时 §2 与 §3.2 的 `S` 取值失去规范判据，
     须按 EXP-6 结论重评并在文首变更记录留痕（**本次不改动**）；
     回退分数由 `cvss_check.py` 现算确认：
-    `python _re_ws\cvss_check.py "AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:H/A:N"`
+    `python _re_workspace\cvss_check.py "AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:H/A:N"`
   - **未取证**：step2 与 step3 都失败 → 记"未取证"，**不得**默认维持
     S:U；§4 的"分数待 EXP-N 取证后冻结"继续有效。
 - 产物路径：`evidence/EXP-6_grant_type.txt`（必需）、

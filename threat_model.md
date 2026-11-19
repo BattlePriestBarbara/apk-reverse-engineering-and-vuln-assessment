@@ -4,7 +4,7 @@
 > 评分口径：CVSS v3.1 **Base + Temporal + Environmental** 三组并列 ——
 > Base 见 §2/§3，Temporal 与 Environmental 见 §5；Scope 等争议指标另在
 > §4 给出备选取值区间，不改变 §2 主表取值。
-> 复算工具：`_re_ws/cvss_check.py`（按 FIRST §7.1/§7.2/§7.3 实现
+> 复算工具：`_re_workspace/cvss_check.py`（按 FIRST §7.1/§7.2/§7.3 实现
 > Roundup 与各分项公式；`--emit-block` 生成 §5，`--verify` 反向比对，
 > 杜绝手工查表误差）。
 
@@ -16,7 +16,7 @@
 | 公式 | `ISS=1-(1-C)(1-I)(1-A)`；`Impact` 在 S:U 为 `6.42×ISS`，S:C 为 `7.52×(ISS-0.029)-3.25×(ISS-0.02)^15`；`Exploitability=8.22×AV×AC×PR×UI`；`Base=Roundup(min(Impact+Expl,10))`，S:C 时再乘 1.08 后取 min 10；`Temporal=Roundup(Base×E×RL×RC)`；`MISS=min(1-(1-CR×MC)(1-IR×MI)(1-AR×MA),0.915)`，`ModifiedImpact` 在 MS:C 时指数为 13（见 §5.3） |
 | Roundup | 向上取 1 位小数（整数运算规避浮点误差） |
 | 严重度映射 | 0.1–3.9 Low；4.0–6.9 Medium；7.0–8.9 High；9.0–10.0 Critical |
-| 复算命令 | Base：`python _re_ws/cvss_check.py "AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:N"`；加时间/环境指标：`--temporal E:POC/RL:OF/RC:UR --environmental CR:H/IR:H/AR:M`；生成 §5 正文：`--emit-block`；反向校验：`--verify threat_model.md` |
+| 复算命令 | Base：`python _re_workspace/cvss_check.py "AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:N"`；加时间/环境指标：`--temporal E:POC/RL:OF/RC:UR --environmental CR:H/IR:H/AR:M`；生成 §5 正文：`--emit-block`；反向校验：`--verify threat_model.md` |
 
 **取值原则**：每一项都取"已有证据能支撑的值"，不因"理论上还能更糟"而上调。
 对存在争议的指标（主要是 Scope），在 §4 给出备选取值与分数区间，交由甲方
@@ -148,7 +148,7 @@ T-3 ∈ [6.5, 8.2]，区间下沿全部落在 High 及以上，**不因口径选
 ## 5. Temporal 与 Environmental 评分
 
 > 本章不使用查表值：Base / Temporal / Environmental 三组分数与中间量（ISS、
-> Impact、Exploitability、MISS、ModifiedImpact）全部由 `_re_ws/cvss_check.py`
+> Impact、Exploitability、MISS、ModifiedImpact）全部由 `_re_workspace/cvss_check.py`
 > 现场复算 —— 本章正文由 `--emit-block` 生成，`--verify` 反向逐项比对，
 > 偏差写本文末「QA」行。Base 向量一个字母都不动（除非 EXP-1 判 FAIL）。
 

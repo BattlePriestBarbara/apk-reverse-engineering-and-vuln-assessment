@@ -1,0 +1,44 @@
+  90| SIGN_ALGORITHMS: Dict[str, Callable[[Mapping[str, Any], str], str]] = {}
+ 122|         :data:`SIGN_ALGORITHMS` 的键，默认 ``stub``（未实现）。
+ 149|     def effective_timestamp(self) -> str:
+ 153|     def effective_nonce(self) -> str:
+ 160|     def host(self) -> str:
+ 165| def mask(value: str, keep: int = 4) -> str:
+ 174| def build_payload(cfg: PocConfig) -> Dict[str, str]:
+ 188| def canonical_query(payload: Mapping[str, Any]) -> str:
+ 194| def generate_signature(
+ 209|         :data:`SIGN_ALGORITHMS` 中的算法标识。
+ 230|     if algorithm not in SIGN_ALGORITHMS:
+ 233|             f"{sorted(SIGN_ALGORITHMS)}。请先逆向还原签名算法并在 "
+ 234|             "SIGN_ALGORITHMS 中注册实现。"
+ 236|     return SIGN_ALGORITHMS[algorithm](payload, secret)
+ 239| def _sign_hmac_sha256(payload: Mapping[str, Any], secret: str) -> str:
+ 246| def _sign_hmac_sha1(payload: Mapping[str, Any], secret: str) -> str:
+ 253| def _sign_md5_sorted(payload: Mapping[str, Any], secret: str) -> str:
+ 259| SIGN_ALGORITHMS.update(
+ 271| def enforce_guard(cfg: PocConfig) -> None:
+ 301| def build_headers(cfg: PocConfig, signature: str) -> Dict[str, str]:
+ 312| def _import_requests() -> Any:
+ 323| def send_request(cfg: PocConfig, payload: Dict[str, str],
+ 358| def setup_logging(verbose: bool, log_file: Optional[str]) -> None:
+ 372| def read_secret_from_stdin() -> str:
+ 381| def parse_params(pairs: list[str]) -> Dict[str, str]:
+ 392| def build_arg_parser() -> argparse.ArgumentParser:
+ 398|     parser.add_argument("--url", default=PocConfig.url, help="完整网关地址")
+ 399|     parser.add_argument("--app-key", default=PocConfig.app_key)
+ 400|     parser.add_argument("--secret", default=None,
+ 402|     parser.add_argument("--secret-stdin", action="store_true",
+ 404|     parser.add_argument("--timestamp", default=None, help="毫秒时间戳")
+ 405|     parser.add_argument("--nonce", default=None, help="随机串")
+ 406|     parser.add_argument("--algorithm", default="stub",
+ 407|                         choices=["stub", *SIGN_ALGORITHMS])
+ 408|     parser.add_argument("--param", action="append", default=[],
+ 410|     parser.add_argument("--timeout", type=float, default=10.0)
+ 411|     parser.add_argument("--retries", type=int, default=1)
+ 412|     parser.add_argument("--insecure", action="store_true",
+ 414|     parser.add_argument("--allow-host", action="append", default=[],
+ 416|     parser.add_argument("--confirm-authorized", action="store_true",
+ 418|     parser.add_argument("--dry-run", action="store_true",
+ 420|     parser.add_argument("--log-file", default=None)
+ 421|     parser.add_argument("--verbose", action="store_true")
+ 425| def main(argv: Optional[list[str]] = None) -> int:

@@ -1,0 +1,261 @@
+FILE INVENTORY (25 files under evidence/sandbox/tests + root md)
+====================================================================================================
+  .py          19251  evidence\collect_golden.py
+  .py           7704  evidence\compare_keys.py
+  .txt          1860  evidence\EXP-8_sandbox_attack.txt
+  .md           6218  evidence\FINDINGS_sign_algo.md
+  .js          19933  evidence\frida_dump_sign.js
+  .txt           343  evidence\SHA256SUMS.txt
+  .json        11970  sandbox\attack_result.json
+  .py          17483  sandbox\attack_sim.py
+  .yml           819  sandbox\docker-compose.yml
+  (none)         974  sandbox\Dockerfile
+  .py           9728  sandbox\mock_gateway.py
+  .md           3844  sandbox\README.md
+  .md           6037  sandbox\RESULTS.md
+  .sh           1664  sandbox\run_in_docker.sh
+  .ps1           648  sandbox\run_offline.ps1
+  .py           8664  tests\test_poc_oracle.py
+  .py           5189  tests\test_sandbox_attacks.py
+  .py          13994  tests\test_sanitize.py
+  .md          23459  EXPERIMENTS_NEEDED.md
+  .md           5977  VULN_SCREEN_REPORT.md
+  .md          28208  remediation_plan.md
+  .md          17825  threat_model.md
+  .md           2689  unverified_hypotheses.md
+  .md          44443  综合安全评估报告_静态动态与模拟攻击.md
+  .md         100899  逆向与安全评估报告.md
+
+====================================================================================================
+### DISTINCT VALUES PER PATTERN
+
+### package  unique=37 total=71
+    12  com.hanweb.android.zhejiang.activity                                    <- evidence\FINDINGS_sign_algo.md, 综合安全评估报告_静态动态与模拟攻击.md, 逆向与安全评估报告.md
+     5  com.alibaba.gov.android.zwfw.main.LoadingActivity                       <- evidence\FINDINGS_sign_algo.md, 综合安全评估报告_静态动态与模拟攻击.md, 逆向与安全评估报告.md
+     4  com.secneo.apkwrapper                                                   <- 综合安全评估报告_静态动态与模拟攻击.md, 逆向与安全评估报告.md
+     3  com.sina.weibo.sdk.share.ShareResultActivity                            <- 逆向与安全评估报告.md
+     3  com.alipay.sdk.app.PayResultActivity                                    <- 逆向与安全评估报告.md
+     2  com.alibaba.gov.android.zwfw.login.ZWThridAppAuthActivity               <- 逆向与安全评估报告.md
+     2  com.hanweb.android.zhejiang.activity.wxapi.WXPayEntryActivity           <- 逆向与安全评估报告.md
+     2  com.hanweb.android.zhejiang.activity.wxapi.WXEntryActivity              <- 逆向与安全评估报告.md
+     2  com.hanweb.android.zhejiang.activity.ddshare.DDShareActivity            <- 逆向与安全评估报告.md
+     2  com.alibaba.gov.android.wauth.ZWWAuthTmpActivity                        <- 逆向与安全评估报告.md
+     2  com.thunisoft.meet.MeetActivity                                         <- 逆向与安全评估报告.md
+     2  com.alipay.sdk.app.AlipayResultActivity                                 <- 逆向与安全评估报告.md
+     2  com.umeng.message.UMessageNotifyActivity                                <- 逆向与安全评估报告.md
+     2  com.taobao.accs.data.MsgDistributeService                               <- 逆向与安全评估报告.md
+     2  com.ali.zw.biz.common.MfrMzMessageReceiver                              <- 逆向与安全评估报告.md
+     2  com.alibaba.app                                                         <- 逆向与安全评估报告.md
+     2  com.huawei.hms.client.appid                                             <- 逆向与安全评估报告.md
+     1  com.example.app                                                         <- evidence\collect_golden.py
+     1  com.secneo.apkwrapper.AW                                                <- 逆向与安全评估报告.md
+     1  com.secneo.apkwrapper.AP                                                <- 逆向与安全评估报告.md
+     1  com.alibaba.gov.android.fileselector.FileSelectorProvider               <- 逆向与安全评估报告.md
+     1  com.hanweb.android.zhejiang.activity.fileSelectorProvider               <- 逆向与安全评估报告.md
+     1  com.alibaba.gov.android.zwfw.router.RouteActivity                       <- 逆向与安全评估报告.md
+     1  com.ali.zw.biz.common.activity.HelpPushActivity                         <- 逆向与安全评估报告.md
+     1  com.xiaomi.mipush.sdk.NotificationClickedActivity                       <- 逆向与安全评估报告.md
+     1  com.huawei.hms.support.api.push.service.HmsMsgService                   <- 逆向与安全评估报告.md
+     1  com.vivo.push.sdk.service.CommandClientService                          <- 逆向与安全评估报告.md
+     1  com.alipay.tianyan.mobilesdk.TianyanLoggingService                      <- 逆向与安全评估报告.md
+     1  com.vivo.push.api_key                                                   <- 逆向与安全评估报告.md
+     1  com.android.browser.permission.READ_HISTORY_BOOKMARKS                   <- 逆向与安全评估报告.md
+     1  com.asus.msa.SupplementaryDID.ACCESS                                    <- 逆向与安全评估报告.md
+     1  com.dtdream.zhengwuwang.activity.TestActivity                           <- 逆向与安全评估报告.md
+     1  com.ali.zw.biz.phsdk.PHTestActivity                                     <- 逆向与安全评估报告.md
+     1  com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY                       <- 逆向与安全评估报告.md
+     1  com.sina.weibo.sdk.action.ACTION_SDK_REQ_STORY                          <- 逆向与安全评估报告.md
+     1  com.sina.weibo.sdk.share                                                <- 逆向与安全评估报告.md
+     1  com.android.settings                                                    <- 逆向与安全评估报告.md
+
+### winpath  unique=55 total=70
+    11  D:\ddd\ddd`                                                             <- VULN_SCREEN_REPORT.md, 逆向与安全评估报告.md
+     3  D:\ddd\_re_workspace\unpack.py                                          <- 逆向与安全评估报告.md
+     2  D:\ddd\_re_workspace\qa_counts.py                                       <- 逆向与安全评估报告.md
+     2  D:\ddd\_re_workspace\dump_mem.js                                        <- 逆向与安全评估报告.md
+     2  D:\ddd\_re_workspace`）：                                                 <- 逆向与安全评估报告.md
+     1  D:\ddd\ddd`（`classes.dex`                                               <- evidence\FINDINGS_sign_algo.md
+     1  D:\ddd\ddd`（已解码                                                         <- sandbox\RESULTS.md
+     1  D:\ddd\ddd`（APK                                                         <- VULN_SCREEN_REPORT.md
+     1  D:\ddd\ddd`（已解包的                                                        <- 综合安全评估报告_静态动态与模拟攻击.md
+     1  D:\ddd\ddd`；生产域名在                                                       <- 综合安全评估报告_静态动态与模拟攻击.md
+     1  D:\ddd\ddd`（4,185                                                       <- 综合安全评估报告_静态动态与模拟攻击.md
+     1  D:\ddd\ddd`，4,185                                                       <- 综合安全评估报告_静态动态与模拟攻击.md
+     1  D:\ddd\ddd`（已解压的                                                        <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace`：                                                  <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace`（Python                                            <- 逆向与安全评估报告.md
+     1  D:\ddd\ddd`：                                                            <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\apktool_out\apktool.yml                            <- 逆向与安全评估报告.md
+     1  D:\ddd\ddd\META-INF\ZJZW.RSA                                            <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\dex_stub.py                                        <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_dex2.py                                         <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_dex4.py                                         <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_dex7.py                                         <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_dex8.py                                         <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\probe_payload.py                                   <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\jadx_stub                                          <- 逆向与安全评估报告.md
+     1  D:\ddd\ddd\classes.dex                                                  <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\axml_tree.py                                       <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\arsc_secrets.py                                    <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\evidence_scan.py                                   <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\manifest_audit.py                                  <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\provider_map.py                                    <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\exported_report.py                                 <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\scan_text2.py                                      <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\list_js.py                                         <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\white_urls_stats.py                                <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_manifest_meta.py                                <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_env3.py                                         <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_pii2.py                                         <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_misc.py                                         <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_white.py                                        <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_http.py                                         <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_lines.py                                        <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_h4.py                                           <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_dt2.py                                          <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_md.py                                           <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\qa_refs.py                                         <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\keyharvest.py                                      <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\harvest2.py                                        <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\keyweakness.py                                     <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\hunt3.py                                           <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\pack_apk.py                                        <- 逆向与安全评估报告.md
+     1  D:\ddd\_re_workspace\diag.js                                            <- 逆向与安全评估报告.md
+     1  D:\leidian\LDPlayer9`；`adb                                              <- 逆向与安全评估报告.md
+     1  D:\`                                                                    <- 逆向与安全评估报告.md
+     1  C:\Program                                                              <- 逆向与安全评估报告.md
+
+### ipv4  unique=26 total=44
+     5  47.99.17.218                                                            <- 逆向与安全评估报告.md
+     3  8.1.4.2                                                                 <- remediation_plan.md, threat_model.md, 综合安全评估报告_静态动态与模拟攻击.md
+     3  8.1.4.8                                                                 <- remediation_plan.md, threat_model.md, 综合安全评估报告_静态动态与模拟攻击.md
+     3  47.114.199.23                                                           <- 逆向与安全评估报告.md
+     3  127.0.0.1                                                               <- 逆向与安全评估报告.md
+     2  8.1.4.1                                                                 <- remediation_plan.md, 综合安全评估报告_静态动态与模拟攻击.md
+     2  8.1.4.4                                                                 <- remediation_plan.md, 综合安全评估报告_静态动态与模拟攻击.md
+     2  42.236.64.63                                                            <- 逆向与安全评估报告.md
+     2  139.224.138.243                                                         <- 逆向与安全评估报告.md
+     2  101.132.92.129                                                          <- 逆向与安全评估报告.md
+     2  120.27.194.121                                                          <- 逆向与安全评估报告.md
+     1  10.1.2.3                                                                <- tests\test_sanitize.py
+     1  118.178.85.217                                                          <- 逆向与安全评估报告.md
+     1  118.178.118.35                                                          <- 逆向与安全评估报告.md
+     1  115.236.188.138                                                         <- 逆向与安全评估报告.md
+     1  115.29.3.85                                                             <- 逆向与安全评估报告.md
+     1  118.178.148.188                                                         <- 逆向与安全评估报告.md
+     1  139.224.94.200                                                          <- 逆向与安全评估报告.md
+     1  59.202.29.35                                                            <- 逆向与安全评估报告.md
+     1  10.0.1.2                                                                <- 逆向与安全评估报告.md
+     1  10.0.132.132                                                            <- 逆向与安全评估报告.md
+     1  172.16.17.586                                                           <- 逆向与安全评估报告.md
+     1  192.168.1.118                                                           <- 逆向与安全评估报告.md
+     1  223.4.69.502                                                            <- 逆向与安全评估报告.md
+     1  60.188.226.930                                                          <- 逆向与安全评估报告.md
+     1  0.0.0.0                                                                 <- 逆向与安全评估报告.md
+
+### url  unique=80 total=107
+    18  http://`                                                                <- remediation_plan.md, 综合安全评估报告_静态动态与模拟攻击.md, 逆向与安全评估报告.md
+     3  https://`                                                               <- 逆向与安全评估报告.md
+     3  http://op.zjzwfw.gov.cn/…/fileupload`                                   <- 逆向与安全评估报告.md
+     2  https://YOUR_TEST_GATEWAY_HOST/YOUR_GATEWAY_PATH                        <- EXPERIMENTS_NEEDED.md
+     2  http://portal.zjzwfw.gov.cn/overrideSpace/tools/parser.js               <- 逆向与安全评估报告.md
+     2  http://portal-jcss.aegmp.com/uc/auth/token                              <- 逆向与安全评估报告.md
+     2  http://47.99.17.218                                                     <- 逆向与安全评估报告.md
+     2  http://101.132.92.129                                                   <- 逆向与安全评估报告.md
+     2  http://120.27.194.121:8080/dist/#/                                      <- 逆向与安全评估报告.md
+     1  https://test-gateway.invalid/app/mgop                                   <- tests\test_poc_oracle.py
+     1  https://portal.zjzwfw.gov.cn/app/mgop                                   <- tests\test_poc_oracle.py
+     1  http://10.1.2.3/x\r\n                                                   <- tests\test_sanitize.py
+     1  https://YOUR_TEST_GATEWAY_HOST/YOUR_READONLY_ENDPOINT_1                 <- EXPERIMENTS_NEEDED.md
+     1  https://YOUR_TEST_GATEWAY_HOST/YOUR_WRITE_ENDPOINT_1                    <- EXPERIMENTS_NEEDED.md
+     1  https://YOUR_PLATFORM_HOST/YOUR_TOKEN_PATH?grant_type=client_credentia  <- EXPERIMENTS_NEEDED.md
+     1  https://YOUR_PLATFORM_HOST/YOUR_USERINFO_PATH?access_token=YOUR_TOKEN_  <- EXPERIMENTS_NEEDED.md
+     1  https://YOUR_PLATFORM_HOST/YOUR_SENDMSG_PATH?access_token=YOUR_TOKEN_H  <- EXPERIMENTS_NEEDED.md
+     1  https://YOUR_PLATFORM_HOST/YOUR_BIND_PATH?access_token=YOUR_TOKEN_HERE  <- EXPERIMENTS_NEEDED.md
+     1  https://`；启用                                                            <- remediation_plan.md
+     1  http://...`                                                             <- remediation_plan.md
+     1  https://github.com/gitleaks/gitleaks                                    <- remediation_plan.md
+     1  http://…/uc/auth/token`，                                                <- 综合安全评估报告_静态动态与模拟攻击.md
+     1  http://`，即                                                              <- 综合安全评估报告_静态动态与模拟攻击.md
+     1  http://`；`usesCleartextTraffic=false`                                   <- 综合安全评估报告_静态动态与模拟攻击.md
+     1  http://42.236.64.63:8081/uaa/authorize`、`http://139.224.138.243/gatewa  <- 逆向与安全评估报告.md
+     1  http://puser.zjzwfw.gov.cn/sso/usp.do`。                                 <- 逆向与安全评估报告.md
+     1  https://mapi.zjzwfw.gov.cn/app/mgop`                                    <- 逆向与安全评估报告.md
+     1  https://portal.zjzwfw.gov.cn`                                           <- 逆向与安全评估报告.md
+     1  https://bops.zjzwfw.gov.cn/…/fileupload`                                <- 逆向与安全评估报告.md
+     1  https://pre-mapi.zjzwfw.gov.cn/app/mgop`                                <- 逆向与安全评估报告.md
+     1  https://pre-portal.zjzwfw.gov.cn`                                       <- 逆向与安全评估报告.md
+     1  http://govtest.zjzwfw.gov.cn/app/mgop`                                  <- 逆向与安全评估报告.md
+     1  http://47.99.17.218`                                                    <- 逆向与安全评估报告.md
+     1  http://47.114.199.23:8068/app/mgop`                                     <- 逆向与安全评估报告.md
+     1  http://govtest.zjzwfw.gov.cn`                                           <- 逆向与安全评估报告.md
+     1  http://govtest.zjzwfw.gov.cn/app/mgop`），意味着抓一次测试环境的包就能同时拿到请求签名与签名算法，随后  <- 逆向与安全评估报告.md
+     1  http://47.114.199.23:8068`、`http://47.99.17.218`                        <- 逆向与安全评估报告.md
+     1  http://`（已验证）                                                           <- 逆向与安全评估报告.md
+     1  http://op.zjzwfw.gov.cn/wireless/endpoint/portal/file_manager/fileuplo  <- 逆向与安全评估报告.md
+     1  http://bops.zjzwfw.gov.cn/                                              <- 逆向与安全评估报告.md
+     1  http://portal.zjzwfw.gov.cn/overrideSpace/search/ParseHistory.js        <- 逆向与安全评估报告.md
+     1  http://portal.zjzwfw.gov.cn/overrideSpace/search/ParseRecommend.js      <- 逆向与安全评估报告.md
+     1  http://portal.zjzwfw.gov.cn/overrideSpace/search/zlb_search_history.js  <- 逆向与安全评估报告.md
+     1  http://portal.zjzwfw.gov.cn/overrideSpace/search/zlb_search_result.jso  <- 逆向与安全评估报告.md
+     1  http://portal.zjzwfw.gov.cn/overrideSpace/license/ep_source_auth_list.  <- 逆向与安全评估报告.md
+     1  http://portal.zjzwfw.gov.cn/overrideSpace/license/ep_source_license_li  <- 逆向与安全评估报告.md
+     1  http://portal.zjzwfw.gov.cn/overrideSpace/license/zlb_my_license_empty  <- 逆向与安全评估报告.md
+     1  http://recept.zjzwfw.gov.cn/oss/upload/bb662539…a91/pre/templates/*.js  <- 逆向与安全评估报告.md
+     1  http://pre-portal.zjzwfw.gov.cn/overrideSpace/tools/parser.js           <- 逆向与安全评估报告.md
+     1  http://pre-portal.zjzwfw.gov.cn/overrideSpace/search/ParserSearchResul  <- 逆向与安全评估报告.md
+     1  http://pre-kamala.zjzwfw.gov.cn                                         <- 逆向与安全评估报告.md
+     1  http://www.zj.gov.cn/art/2023/5/18/art_1229699341_10820.html            <- 逆向与安全评估报告.md
+     1  http://assets-poc-zwzt.aegmp.com/upload/e5b795d4-….json                 <- 逆向与安全评估报告.md
+     1  http://govtest.zjzwfw.gov.cn/app/mgop                                   <- 逆向与安全评估报告.md
+     1  http://47.114.199.23:8068/app/mgop                                      <- 逆向与安全评估报告.md
+     1  http://118.178.85.217:8080                                              <- 逆向与安全评估报告.md
+     1  http://42.236.64.63:8081/uaa/authorize                                  <- 逆向与安全评估报告.md
+     1  http://118.178.118.35:8080/usp.do                                       <- 逆向与安全评估报告.md
+     1  http://115.236.188.138:8088/yjj/sso/login                               <- 逆向与安全评估报告.md
+     1  http://115.29.3.85/sso/mobile.do?                                       <- 逆向与安全评估报告.md
+     1  http://118.178.148.188/sso/mobile.do                                    <- 逆向与安全评估报告.md
+     1  http://139.224.138.243/gateway/identification/simulate/face/initialize  <- 逆向与安全评估报告.md
+     1  http://139.224.94.200/gateway/identification/simulate/face/initialize   <- 逆向与安全评估报告.md
+     1  http://59.202.29.35                                                     <- 逆向与安全评估报告.md
+     1  http://puser.zjzwfw.gov.cn/sso/usp.do`                                  <- 逆向与安全评估报告.md
+     1  https://puser.zjzwfw.gov.cn/sso/usp.do`                                 <- 逆向与安全评估报告.md
+     1  https://puser.zjzwfw.gov.cn/sso/usp.do`（同一接口的                           <- 逆向与安全评估报告.md
+     1  http://`，其中                                                             <- 逆向与安全评估报告.md
+     1  http://portal.zjzwfw.gov.cn                                             <- 逆向与安全评估报告.md
+     1  http://portal.zjzwfw.gov.cn/overrideSpace/license/ep_source_license_li  <- 逆向与安全评估报告.md
+     1  http://portal.zjzwfw.gov.cn/overrideSpace/license/ep_source_auth_list_  <- 逆向与安全评估报告.md
+     1  http://pre-kamala.zjzwfw.gov.cn、http://bops.zjzwfw.gov.cn/              <- 逆向与安全评估报告.md
+     1  https://portal.zjzwfw.gov.cn/overrideSpace/tools/parser.js`（已逐行核对），说明开  <- 逆向与安全评估报告.md
+     1  http://govtest.zjzwfw.gov.cn                                            <- 逆向与安全评估报告.md
+     1  http://pre-portal.zjzwfw.gov.cn                                         <- 逆向与安全评估报告.md
+     1  http://govtest.zjzwfw.gov.cn`、`http://47.99.17.218`）。中间人篡改              <- 逆向与安全评估报告.md
+     1  https://ztb-quicktracking-api.zj.gov.cn/`、`atm_channel=android`、`atm_a  <- 逆向与安全评估报告.md
+     1  https://puser.zjzwfw.gov.cn/sso/mobile.do                               <- 逆向与安全评估报告.md
+     1  https://esso.zjzwfw.gov.cn/opensso/spsaehandler/metaAlias/sp            <- 逆向与安全评估报告.md
+     1  https://evil（M-6）                                                       <- 逆向与安全评估报告.md
+
+### sha256  unique=9 total=9
+     1  b47106b58f7f8c4615fb43b8a27fbb165695f2a26b82b1263614754c237102ff        <- evidence\SHA256SUMS.txt
+     1  7bf2d10cc753908eb038d58e71932a5162a7311b3387cb8ac2f3e6b92f3defd8        <- evidence\SHA256SUMS.txt
+     1  5b7849028bdd622bbe3b998e6322af40d37b4c695cd27f75b4815f8f8b85adf4        <- evidence\SHA256SUMS.txt
+     1  7ba89513f1ccc6075fc86da947ab44bdaacee6384d4bef5232a08f2f8a0838a6        <- evidence\SHA256SUMS.txt
+     1  412f840a515caea6f2cfa95354804199e41623023ce9bab9a7b220d7e0c5a4b9        <- 逆向与安全评估报告.md
+     1  d2bd44b445d9c4d6abe347d51580b6e396b1d235db94f1ba0ec44818f19e8ccc        <- 逆向与安全评估报告.md
+     1  63e3176f68d80c43949b92d0b04fc044185575a465137c7d447b9bb7793c8d2d        <- 逆向与安全评估报告.md
+     1  751a3e63b54b3b4ab9b588ee58bda4c6673985bfdaae9d550703972cdae2b899        <- 逆向与安全评估报告.md
+     1  03ef811f96f64a3bd859502a0d98a581eca7763486aa80f54b94c8692727c2e1        <- 逆向与安全评估报告.md
+
+### md5  unique=5 total=7
+     2  83471fce86a61d544cf86a8dc47194fc                                        <- 逆向与安全评估报告.md
+     2  384f96931bb03070343751e49cb1c779                                        <- 逆向与安全评估报告.md
+     1  bb662539e30a4bcc8cb3d9c19c621a91                                        <- 逆向与安全评估报告.md
+     1  8d1f4fd6257d4a44aa3e856199d9e492                                        <- 逆向与安全评估报告.md
+     1  ab7f80a94917fa202fb9609da2b9f779                                        <- 逆向与安全评估报告.md
+
+### email  unique=0 total=0
+
+### androidid  unique=3 total=4
+     2  abcdef0123456789                                                        <- tests\test_poc_oracle.py
+     1  0000000008093c86                                                        <- 逆向与安全评估报告.md
+     1  0000763910203e90                                                        <- 逆向与安全评估报告.md

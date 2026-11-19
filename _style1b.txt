@@ -1,0 +1,6 @@
+_re_workspace\cvss_check.py:172: E501 琛岄暱搴?83 > 79
+_re_workspace\cvss_check.py:211: E303 杩炵画绌鸿瓒呰繃 2 琛?
+_re_workspace\cvss_check.py:212: E303 杩炵画绌鸿瓒呰繃 2 琛?
+_re_workspace\cvss_check.py:444: E501 琛岄暱搴?80 > 79
+
+妫€鏌?1 涓枃浠讹紝闂 4 鏉★紙娑夊強 1 涓枃浠讹級

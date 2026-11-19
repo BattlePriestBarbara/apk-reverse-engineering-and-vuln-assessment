@@ -1,0 +1,70 @@
+ 236|     return SIGN_ALGORITHMS[algorithm](payload, secret)
+ 237| 
+ 238| 
+ 239| def _sign_hmac_sha256(payload: Mapping[str, Any], secret: str) -> str:
+ 240|     """参考实现：HMAC-SHA256(字典序 query + secret) → 小写十六进制。"""
+ 241|     message = f"{canonical_query(payload)}{secret}".encode("utf-8")
+ 242|     return hmac.new(secret.encode("utf-8"), message,
+ 243|                     hashlib.sha256).hexdigest()
+ 244| 
+ 245| 
+ 246| def _sign_hmac_sha1(payload: Mapping[str, Any], secret: str) -> str:
+ 247|     """参考实现：HMAC-SHA1（部分 mPaaS 网关旧算法）。"""
+ 248|     message = f"{canonical_query(payload)}{secret}".encode("utf-8")
+ 249|     return hmac.new(secret.encode("utf-8"), message,
+ 250|                     hashlib.sha1).hexdigest()
+ 251| 
+ 252| 
+ 253| def _sign_md5_sorted(payload: Mapping[str, Any], secret: str) -> str:
+ 254|     """参考实现：MD5(字典序 query + secret) → 小写十六进制。"""
+ 255|     raw = f"{canonical_query(payload)}{secret}".encode("utf-8")
+ 256|     return hashlib.md5(raw).hexdigest()
+ 257| 
+ 258| 
+ 259| SIGN_ALGORITHMS.update(
+ 260|     {
+ 261|         "hmac-sha256-sorted": _sign_hmac_sha256,
+ 262|         "hmac-sha1-sorted": _sign_hmac_sha1,
+ 263|         "md5-sorted": _sign_md5_sorted,
+ 264|     }
+ 265| )
+ 266| 
+ 267| 
+ 268| # ----------------------------------------------------------------------
+ 269| # 目标守卫
+ 270| # ----------------------------------------------------------------------
+ 271| def enforce_guard(cfg: PocConfig) -> None:
+ 272|     """执行守卫检查，任何一项不通过即中止。
+ 273| 
+ 274|     Raises
+ 275|     ------
+ 276|     GuardError
+ 277|         指向生产域名、主机不在白名单、配置仍是占位符或 scheme 非法。
+ 278|     """
+ 279|     if cfg.secret in PLACEHOLDER_VALUES:
+ 280|         raise GuardError("secret 仍是占位符，请用 --secret-stdin 注入")
+ 281|     if cfg.app_key in PLACEHOLDER_VALUES:
+ 282|         raise GuardError("appKey 仍是占位符，请用 --app-key 传入")
+ 283|     host = cfg.host()
+ 284|     if not host:
+ 285|         raise GuardError(f"无法解析主机名：{cfg.url!r}")
+ 286|     if host in PLACEHOLDER_VALUES or "your_" in host:
+ 287|         raise GuardError(f"目标主机仍是占位符：{host!r}，请显式 --url")
+ 288|     for prod in PRODUCTION_HOSTS:
+ 289|         if host == prod or host.endswith("." + prod):
+ 290|             raise GuardError(f"目标 {host} 属生产域名，本脚本拒绝访问")
+ 291|     allowed = cfg.allow_hosts or (host,)
+ 292|     if host not in allowed:
+ 293|         raise GuardError(f"主机 {host} 不在 --allow-host 白名单 {allowed}")
+ 294|     if urlsplit(cfg.url).scheme not in ("http", "https"):
+ 295|         raise GuardError("仅支持 http/https")
+ 296| 
+ 297| 
+ 298| # ----------------------------------------------------------------------
+ 299| # 传输、日志
+ 300| # ----------------------------------------------------------------------
+ 301| def build_headers(cfg: PocConfig, signature: str) -> Dict[str, str]:
+ 302|     """构造请求头（签名放 header 还是 body 依业务而定，此处两处都给）。"""
+ 303|     return {
+ 304|         "User-Agent": "zjzw-security-assessment/1.0 (authorized-poc)",
+ 305|         "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",

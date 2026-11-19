@@ -1,8 +1,8 @@
 # 离线漏洞筛查报告（2026-11-13 轮）
 
-> 样本：`<APK_DIR>`（APK 解包 + 审计产物）
-> 复现：`python _re_ws/vuln_screen.py`
-> 产物：`_re_ws/vuln_screen.json`、`_re_ws/vuln_screen.txt`
+> 样本：`D:\ddd\ddd`（APK 解包 + 审计产物）
+> 复现：`python _re_workspace/vuln_screen.py`
+> 产物：`_re_workspace/vuln_screen.json`、`_re_workspace/vuln_screen.txt`
 > 网络：全程零调用（脚本不 import socket / urllib / requests）
 
 ## 1. 方法与保证
@@ -42,15 +42,15 @@
 
 | 编号 | 发现 | 级别 | 样本 | 定位 | 复现命令 | 产物 |
 | --- | --- | --- | --- | --- | --- | --- |
-| S4-1 | `usesCleartextTraffic=true` 全局允许明文 | 高 | `<APK_DIR>` | `manifest_audit.txt:111` | `python _re_ws/vuln_screen.py` | `vuln_screen.json` |
-| S3-1 | 明文 HTTP 端点 7 个（政务域 4 处、IP 2 个、第三方 1 个） | 高 | `<APK_DIR>` | `ddd/**/*` 命中次数见 JSON | 同上 | `vuln_screen.json` |
-| S4-2 | `exported=true` 组件 26 个 | 中 | `<APK_DIR>` | `manifest_audit.txt:115` | 同上 | `vuln_screen.json` |
-| S4-3 | 可浏览深链 6 处（scheme 可被任意应用唤起） | 中 | `<APK_DIR>` | `exported_report.txt:3` | 同上 | `vuln_screen.json` |
-| S6-1 | 有 NSC 但无 `pin-set`（可被任意 CA 中间人） | 中 | `<APK_DIR>` | `res\xml\network_security_config.xml` | 同上 | `vuln_screen.json` |
-| S5-1 | `gatewaySignSecret` 符号在明文 DEX 中 | 信息 | `<APK_DIR>` | `classes.dex:0x1837088` | 同上 | `vuln_screen.json` |
-| S5-2 | WebView JS 桥 / 远程调试开关均在册 | 信息 | `<APK_DIR>` | `classes.dex:0x30b71c`、`0x3a54c0` | 同上 | `vuln_screen.json` |
-| S5-3 | 运行时 `DexClassLoader`（配合壳的二次加载） | 信息 | `<APK_DIR>` | `classes.dex:0x12a980d` | 同上 | `vuln_screen.json` |
-| S1c-1 | `RiskStub.dex` 内嵌 base64 DER 证书/公钥 2 段 | 信息 | `<APK_DIR>` | `assets/RiskStub.dex:0x5fd7a`、`0x5fe55` | 同上 | `vuln_screen.json` |
+| S4-1 | `usesCleartextTraffic=true` 全局允许明文 | 高 | `D:\ddd\ddd` | `manifest_audit.txt:111` | `python _re_workspace/vuln_screen.py` | `vuln_screen.json` |
+| S3-1 | 明文 HTTP 端点 7 个（政务域 4 处、IP 2 个、第三方 1 个） | 高 | `D:\ddd\ddd` | `ddd/**/*` 命中次数见 JSON | 同上 | `vuln_screen.json` |
+| S4-2 | `exported=true` 组件 26 个 | 中 | `D:\ddd\ddd` | `manifest_audit.txt:115` | 同上 | `vuln_screen.json` |
+| S4-3 | 可浏览深链 6 处（scheme 可被任意应用唤起） | 中 | `D:\ddd\ddd` | `exported_report.txt:3` | 同上 | `vuln_screen.json` |
+| S6-1 | 有 NSC 但无 `pin-set`（可被任意 CA 中间人） | 中 | `D:\ddd\ddd` | `res\xml\network_security_config.xml` | 同上 | `vuln_screen.json` |
+| S5-1 | `gatewaySignSecret` 符号在明文 DEX 中 | 信息 | `D:\ddd\ddd` | `classes.dex:0x1837088` | 同上 | `vuln_screen.json` |
+| S5-2 | WebView JS 桥 / 远程调试开关均在册 | 信息 | `D:\ddd\ddd` | `classes.dex:0x30b71c`、`0x3a54c0` | 同上 | `vuln_screen.json` |
+| S5-3 | 运行时 `DexClassLoader`（配合壳的二次加载） | 信息 | `D:\ddd\ddd` | `classes.dex:0x12a980d` | 同上 | `vuln_screen.json` |
+| S1c-1 | `RiskStub.dex` 内嵌 base64 DER 证书/公钥 2 段 | 信息 | `D:\ddd\ddd` | `assets/RiskStub.dex:0x5fd7a`、`0x5fe55` | 同上 | `vuln_screen.json` |
 
 ## 4. 待核实（不进评分表）
 

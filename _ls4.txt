@@ -1,0 +1,81 @@
+﻿
+Length Name                    
+------ ----                    
+   862 .clinerules             
+   435 .gitignore              
+   554 _append_qa.py           
+  2170 _cand.txt               
+  1234 _cand2.txt              
+   836 _dedupe_rem.py          
+  3440 _docfmt.ps1             
+  1852 _fix2.py                
+  2292 _hits_matrix.txt        
+  1289 _inv.txt                
+   137 _ls_dirs.txt            
+    84 _ls_dirs2.txt           
+  2274 _ls_root.txt            
+  4691 _ls_root2.txt           
+  4869 _ls_root3.txt           
+815051 _ls_sanitize2.txt       
+  2704 _match_detail.py        
+ 27025 _match_detail.txt       
+   284 _md1.txt                
+   250 _md1b.txt               
+  6444 _md2doc.py              
+  1378 _mdcheck.py             
+     8 _n.txt                  
+921216 _now_all.txt            
+  2573 _now_root.txt           
+    32 _now_san.txt            
+  3781 _oracle_run.txt         
+  4861 _patch_exp.py           
+ 13158 _patch_rem.py           
+  6183 _patch_tm.py            
+   228 _patch1.log             
+   223 _patch1b.log            
+    70 _qa.txt                 
+  1360 _qa_after.txt           
+   978 _qa_afterb.txt          
+  1360 _qa_before.txt          
+   978 _qa_beforeb.txt         
+  1176 _qa_dry.txt             
+  1176 _qa_dry2.txt            
+  1002 _qa_final.txt           
+  1002 _qa_final2.txt          
+   465 _qd3.txt                
+   401 _qdiff.txt              
+    29 _qdiff2.txt             
+  2221 _scan_sensitive.ps1     
+ 12656 _scan_sensitive.txt     
+    55 _scan_tail.txt          
+  5238 _sec5.md                
+  8112 _slice1.txt             
+  2739 _slice2.txt             
+  3370 _slice3.txt             
+ 10428 _slice4.txt             
+  1580 _slice5.txt             
+  1138 _slice6.txt             
+   497 _slice7.txt             
+   427 _slice8.txt             
+    76 _style1.txt             
+   347 _style1b.txt            
+  1998 _t.py                   
+  1132 _t.txt                  
+  1109 _t2.txt                 
+ 17534 _tm_view.md             
+   362 _u16.py                 
+   278 _ver1.txt               
+   184 _ver1b.txt              
+ 23459 EXPERIMENTS_NEEDED.md   
+ 19511 qa_evidence.py          
+ 28208 remediation_plan.md     
+ 17825 threat_model.md         
+  2689 unverified_hypotheses.md
+  5977 VULN_SCREEN_REPORT.md   
+100899 逆向与安全评估报告.md            
+427118 综合安全评估报告_静态动态与模拟攻击.doc  
+ 44443 综合安全评估报告_静态动态与模拟攻击.md   
+784634 综合安全评估报告_静态动态与模拟攻击.pdf  
+
+
+

@@ -1,0 +1,31 @@
+# -*- coding: utf-8 -*-
+"""Markdown 结构自检：表格列数一致性、代码围栏配对、重复标题。"""
+import io, re
+from collections import Counter
+
+p = r'D:\ddd\逆向与安全评估报告.md'
+lines = io.open(p, encoding='utf-8').read().splitlines()
+
+fences = 0
+tbl = []
+bad = 0
+for i, l in enumerate(lines, 1):
+    if l.strip().startswith('```'):
+        fences += 1
+    if l.startswith('|'):
+        tbl.append((i, l))
+    else:
+        if tbl:
+            head = tbl[0][1].count('|')
+            for n, t in tbl:
+                if t.count('|') != head:
+                    print('列数不一致 line %d (期望 %d 实际 %d): %s' % (n, head, t.count('|'), t[:80]))
+                    bad += 1
+            tbl = []
+print('代码围栏数 =', fences, '(偶数且配对正确)' if fences % 2 == 0 else '★ 奇数，存在未闭合围栏')
+print('表格列数问题 =', bad)
+
+heads = [l for l in lines if re.match(r'^#{2,3} ', l)]
+dup = [h for h, c in Counter(heads).items() if c > 1]
+print('重复标题 =', dup if dup else '无')
+print('行数 =', len(lines), '| 字符数 =', len(io.open(p, encoding='utf-8').read()))

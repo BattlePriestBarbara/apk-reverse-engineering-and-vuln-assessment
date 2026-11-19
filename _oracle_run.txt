@@ -1,0 +1,52 @@
+﻿python : test_cli_exits_5_on_production_host (tests.test_poc_oracle.TestNegative1ProductionBlocked.test_cli_exits_5_on_production_host)
+所在位置 行:1 字符: 212
++ ... STEXITCODE"; python -m unittest tests.test_poc_oracle -v 2>&1 | Out-F ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_cli_exits_...roduction_host):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+绔埌绔細CLI 浠?exit 5 缁撴潫锛屼笖涓嶅彂閫佷换浣曡姹傘€?... ok
+test_guard_rejects_production_host (tests.test_poc_oracle.TestNegative1ProductionBlocked.test_guard_rejects_production_host)
+閰嶇疆鎸囧悜鐢熶骇鍩熷悕鏃?enforce_guard 鎶?GuardError銆?... ok
+test_headless_still_flagged_on_known_source (tests.test_poc_oracle.TestNegative2KnownSourceNotFlagged.test_headless_still_flagged_on_known_sour
+ce)
+R-4 涓?keyver 鏃犲叧锛氱己璁惧澶存椂浠嶇劧鎵撴爣銆?... ok
+test_known_asn_and_device_hit_nothing (tests.test_poc_oracle.TestNegative2KnownSourceNotFlagged.test_known_asn_and_device_hit_nothing)
+鏃ч挜 + 鍘嗗彶 ASN/璁惧 + 鍩虹嚎鍐呴娆?鈫?绌烘爣绛俱€?... ok
+test_burst_only_when_baseline_p99_known (tests.test_poc_oracle.TestNegative3LegacyKeyverTriggersAlert.test_burst_only_when_baseline_p99_known)
+R-3锛氳秴杩?P99脳3 鎵嶆墦鏍囷紱P99=0锛堟牱鏈笉瓒筹級鏃朵笉鎵撴爣銆?... FAIL
+test_cli_dry_run_prints_legacy_branch (tests.test_poc_oracle.TestNegative3LegacyKeyverTriggersAlert.test_cli_dry_run_prints_legacy_branch)
+CLI 绂荤嚎鑷锛歟xit 0锛岃緭鍑洪噷鑳界湅鍒?keyver 涓?LEGACY 鎻愮ず銆?... ok
+test_keyver_participates_in_signature (tests.test_poc_oracle.TestNegative3LegacyKeyverTriggersAlert.test_keyver_participates_in_signature)
+keyver 鍙備笌绛惧悕锛氫笌"鏈０鏄?keyver"鐨勭鍚嶅繀椤讳笉鍚屻€?... ok
+test_offasn_legacy_request_is_flagged (tests.test_poc_oracle.TestNegative3LegacyKeyverTriggersAlert.test_offasn_legacy_request_is_flagged)
+闈炲巻鍙?ASN + 鏂拌澶?鈫?v1_offasn / v1_newdevice锛孯-1 浼樺厛銆?... ok
+test_payload_and_header_carry_keyver (tests.test_poc_oracle.TestNegative3LegacyKeyverTriggersAlert.test_payload_and_header_carry_keyver)
+``--keyver v1`` 蹇呴』鍚屾椂浣撶幇鍦ㄦ姤鏂囦笌 X-Key-Ver 澶撮噷銆?... ok
+test_undeclared_keyver_is_not_legacy (tests.test_poc_oracle.TestNegative4NewKeyverHasNoLegacyTag.test_undeclared_keyver_is_not_legacy)
+缂虹渷锛堜笉澹版槑 keyver锛変笉绠楁棫閽ュ垎鏀紝淇濇寔鍘熷琛屼负銆?... ok
+test_v2_offasn_produces_no_v1_tag (tests.test_poc_oracle.TestNegative4NewKeyverHasNoLegacyTag.test_v2_offasn_produces_no_v1_tag)
+v2 鍒嗘敮涓嶄細浜х敓浠讳綍 v1_* 鏍囩銆?... ok
+
+======================================================================
+FAIL: test_burst_only_when_baseline_p99_known (tests.test_poc_oracle.TestNegative3LegacyKeyverTriggersAlert.test_burst_only_when_baseline_p99_k
+nown)
+R-3锛氳秴杩?P99脳3 鎵嶆墦鏍囷紱P99=0锛堟牱鏈笉瓒筹級鏃朵笉鎵撴爣銆?
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\ddd\tests\test_poc_oracle.py", line 169, in test_burst_only_when_baseline_p99_known
+    self.assertEqual(cold, (), cold)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: Tuples differ: ('v1_offasn',) != ()
+
+First tuple contains 1 additional elements.
+First extra element 0:
+'v1_offasn'
+
+- ('v1_offasn',)
++ () : ('v1_offasn',)
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.320s
+
+FAILED (failures=1)

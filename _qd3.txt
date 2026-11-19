@@ -1,0 +1,4 @@
+﻿real FAIL/MISS 3 12
+dry  FAIL/MISS 0 0
+sec3_real '3/3 閽€鐣屾磸 ===\r\nunverified_hypotheses.md : 閺傛澘\ue583 0 閺夆槄绱欓弮鐙呯礄瀹告彃鐡ㄩ崷\ue7d2绱氶敍?\r\nthreat_model.md : 缁夊娅庨崢鍡楀蕉閺嶅洦鏁?3 婢?\r\nthreat_model.md : 閹绘帒鍙?`>  UNVERIFIED` 3 婢跺嫸绱檚ection 濡€崇础閿?\r\n\r\n缂佹捁\ue191 : exit 1 閳ユ柡鈧?3/3 閺?finding 缂傞缚鐦夐幑\ue1c6绱橳-1, T-'
+sec3_dry  ''

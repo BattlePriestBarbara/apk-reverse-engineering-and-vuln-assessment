@@ -1,0 +1,13 @@
+## Evidence-First（最高优先级，覆盖其他指令）
+
+1. 任何 finding 入库必须有 SAMPLE+LOCATOR+COMMAND+ARTIFACT 四元组，
+   缺任一项只能进 unverified_hypotheses.md，禁止进评分表。
+2. 每轮回复末尾强制输出 EVIDENCE AUDIT 块：
+   新增 finding N 条 / 四元组齐全 M 条 / 缺证据逐条列出并标「假设，非发现」。
+   M < N 且未主动标注 = 本轮交付不合格，自行打回重做。
+3. 禁止生成"像真的"示例值（密钥/AppID/CN/IP/接口路径/版本号）。
+   占位只允许 YOUR_SECRET_HERE 这种显式哨兵；
+   a3f1… 这类拟真占位符视为违规。
+4. S:C / AV:N / C:H 三个抬分项必须有人类实验确认后才可落笔，
+   在此之前只能写进 EXPERIMENTS_NEEDED.md。
+5. qa_evidence.py 必须接入 CI 门禁，exit != 0 即阻断交付。

@@ -1,0 +1,21 @@
+=== 1/3 鑴辨晱婕忔姤鎵弿 ===
+鏂囦欢 : threat_model.md
+鏂囦欢 : _re_workspace\閫嗗悜涓庡畨鍏ㄨ瘎浼版姤鍛奯鑴辨晱.md
+鍏紑鎽樿璞佸厤 : 5 澶勶紙琛屽唴鍚?SHA-256/SPKI/pin/public.key锛?
+鑴辨晱婕忔姤 : 0 澶?
+鐘舵€?: PASS
+
+=== 2/3 鍥涘厓缁勫璁?===
+finding SAMPLE   LOCATOR  COMMAND  ARTIFACT  verdict
+T-1     MISS     MISS     MISS     MISS      FAIL
+T-2     MISS     MISS     MISS     MISS      FAIL
+T-3     MISS     MISS     MISS     MISS      FAIL
+
+鍚堣 : 3 鏉?finding锛屽洓鍏冪粍榻愬叏 0 鏉★紝缂鸿瘉鎹?3 鏉?
+
+=== 3/3 钀界洏 ===
+unverified_hypotheses.md : 鏂板 0 鏉★紙鏃狅紙宸插瓨鍦級锛?
+threat_model.md : 绉婚櫎鍘嗗彶鏍囨敞 3 澶?
+threat_model.md : 鎻掑叆 `>  UNVERIFIED` 3 澶勶紙section 妯″紡锛?
+
+缁撹 : exit 1 鈥斺€?3/3 鏉?finding 缂鸿瘉鎹紙T-1, T-2, T-3锛夛紝宸叉爣娉ㄤ负銆屽亣璁撅紝闈炲彂鐜般€?

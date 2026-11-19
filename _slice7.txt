@@ -1,0 +1,14 @@
+ 170| 
+ 171| def environmental_score(vector: str, env_spec: str = "",
+ 172|                         temporal_spec: str = "") -> Tuple[float, Dict[str, float]]:
+ 173|     """EnvironmentalScore（§7.3），返回 (分数, 中间量)。
+ 208|     return final, detail
+ 209| 
+ 210| 
+ 211| 
+ 212| 
+ 213| ENV_SPEC = "CR:H/IR:H/AR:M"
+ 214| 
+ 443|         worst = max(worst, dev)
+ 444|         detail.append("  %s  %d 项  max|Δ| = %.4f" % (f["id"], len(claims), dev))
+ 445|     print("\n".join(detail))

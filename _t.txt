@@ -1,0 +1,20 @@
+﻿OK  AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:N         10.0 (want 10.0)
+OK  AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N          9.1 (want 9.1)
+OK  AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:H/A:N          8.2 (want 8.2)
+OK  AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:H/A:N          9.3 (want 9.3)
+OK  AV:A/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N          7.1 (want 7.1)
+OK  AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:N          6.5 (want 6.5)
+OK  AV:A/AC:L/PR:N/UI:N/S:C/C:H/I:L/A:N          8.2 (want 8.2)
+OK  AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H          9.8 (want 9.8)
+OK  AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N          6.1 (want 6.1)
+OK  AV:L/AC:H/PR:H/UI:R/S:U/C:N/I:N/A:N          0.0 (want 0.0)
+
+T-1 base=10.0 temp=7.6 (factor=0.752376) env_pure=10.0 (MISS=0.9150 MImpact=6.1280 Pre=10.0) env_full=7.6
+        RC:R 澶囬€?temporal=7.9
+T-2 base=8.2 temp=6.2 (factor=0.752376) env_pure=9.7 (MISS=0.8928 MImpact=5.7318 Pre=9.7) env_full=7.3
+        RC:R 澶囬€?temporal=6.5
+T-3 base=7.1 temp=5.6 (factor=0.786968) env_pure=8.6 (MISS=0.8928 MImpact=5.7318 Pre=8.6) env_full=6.8
+        RC:R 澶囬€?temporal=5.9
+
+known: base9.8 + E:U/RL:O/RC:C -> 7.8
+bad = 0
